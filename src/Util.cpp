@@ -166,15 +166,15 @@ void remove_facultyStaff(std::vector<faculty> &Staff){
 
 void displayMenu()
 {
-    std::cout << "TEST TITLE" << std::endl;
+    std::cout << std::setw(50) << "Console-Based School Manager Application" << std::endl;
     std::cout << std::setw(90) << std::setfill('-') << "-" << std::endl;
     std::cout << std::setfill(' ');
-    std::cout << "(1)" << "One" << std::endl;
-    std::cout << "(2)" << "Two" << std::endl;
-    std::cout << "(3)" << "Three" << std::endl;
-    std::cout << "(4)" << "Four" << std::endl;
-    std::cout << "(5)" << "Five" << std::endl;
-    std::cout << "(0)" << "Exit" << std::endl;
+    std::cout << "(1)" << std::setw(90) << "Modify Person" << std::endl;
+    std::cout << "(2)" << std::setw(90) << "Modify Section" << std::endl;
+    std::cout << "(3)" << std::setw(90) << "Display Staff" << std::endl;
+    std::cout << "(4)" << std::setw(90) << "Print a Section" << std::endl;
+    std::cout << "(5)" << std::setw(90) << "Load a Section" << std::endl;
+    std::cout << "(0)" << std::setw(90) << "Exit" << std::endl;
 }
 
 void Process(size_t choice, std::vector<student> &Student, std::vector<teacher> &Teacher, std::vector<faculty> &Staff){
