@@ -13,6 +13,7 @@ void addStudent(std::vector<student> &Student){
     int age;
 
     //WHY THE FUCK IS GETLINE NOT FUCKING WORKING REEEEEEEEEEEEEEEEE
+    std::cin.get();
     std::cout << "Enter Student's Name: ";
     std::getline(std::cin, name);
 
@@ -39,6 +40,7 @@ void addTeacher(std::vector<teacher> &Teacher){
     std::string section;
     int age;
 
+    std::cin.get();
     std::cout << "Enter Teacher's Name: ";
     std::getline(std::cin, name);
 
@@ -66,7 +68,7 @@ void addFaculty_Staff(std::vector<faculty> &Staff){
     std::string section;
     int age;
 
-    Continue();
+    std::cin.get();
     std::cout << "Enter Staff's Name: ";
     std::getline(std::cin, name);
 
@@ -90,7 +92,7 @@ void display_students(std::vector<student> &Student){
 
     size_t j{1};
 
-    for(size_t i{}; i <= Student.size(); i++)
+    for(size_t i{}; i < Student.size(); i++)
     {
         std::cout << '[' << j << ']' << (Student.at(i)).getName() << std::setw(90) << (Student.at(i)).getSection() << std::endl;
         j++;
@@ -105,7 +107,7 @@ void display_teachers(std::vector<teacher> &Teacher){
 
     size_t j{1};
 
-    for(size_t i{}; i <= Teacher.size(); i++)
+    for(size_t i{}; i < Teacher.size(); i++)
     {
         std::cout << '[' << j << ']' << (Teacher.at(i)).getName() << std::setw(90) << (Teacher.at(i)).getSection() << std::endl;
         j++;
@@ -120,7 +122,7 @@ void display_faculty(std::vector<faculty> &Staff){
 
     size_t j{1};
 
-    for(size_t i{}; i <= Staff.size(); i++)
+    for(size_t i{}; i < Staff.size(); i++)
     {
         std::cout << '[' << j << ']' << (Staff.at(i)).getName() << std::setw(90) << (Staff.at(i)).getSection() << std::endl;
         j++;
