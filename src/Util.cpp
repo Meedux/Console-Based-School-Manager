@@ -2,7 +2,7 @@
 
 void Continue(){
     std::cout << std::endl;
-    std::cin.get();
+    std::system("echo 'Loading......' && sleep 6");
     std::system("clear");
 }
 
@@ -12,6 +12,7 @@ void addStudent(std::vector<student> &Student){
     std::string section;
     int age;
 
+    //WHY THE FUCK IS GETLINE NOT FUCKING WORKING REEEEEEEEEEEEEEEEE
     std::cout << "Enter Student's Name: ";
     std::getline(std::cin, name);
 
@@ -34,7 +35,6 @@ void addStudent(std::vector<student> &Student){
 }
 
 void addTeacher(std::vector<teacher> &Teacher){
-    std::system("clear");
     std::string name;
     std::string section;
     int age;
@@ -66,6 +66,7 @@ void addFaculty_Staff(std::vector<faculty> &Staff){
     std::string section;
     int age;
 
+    Continue();
     std::cout << "Enter Staff's Name: ";
     std::getline(std::cin, name);
 
@@ -94,6 +95,7 @@ void display_students(std::vector<student> &Student){
         std::cout << '[' << j << ']' << (Student.at(i)).getName() << std::setw(90) << (Student.at(i)).getSection() << std::endl;
         j++;
     }
+    Continue();
 }
 
 void display_teachers(std::vector<teacher> &Teacher){
@@ -108,6 +110,7 @@ void display_teachers(std::vector<teacher> &Teacher){
         std::cout << '[' << j << ']' << (Teacher.at(i)).getName() << std::setw(90) << (Teacher.at(i)).getSection() << std::endl;
         j++;
     }
+    Continue();
 }
 
 void display_faculty(std::vector<faculty> &Staff){
@@ -122,6 +125,7 @@ void display_faculty(std::vector<faculty> &Staff){
         std::cout << '[' << j << ']' << (Staff.at(i)).getName() << std::setw(90) << (Staff.at(i)).getSection() << std::endl;
         j++;
     }
+    Continue();
 }
 
 void remove_student(std::vector<student> &Student){
@@ -214,14 +218,17 @@ void Process(size_t choice, std::vector<student> &Student, std::vector<teacher> 
             std::cin >> elementchoice;
             switch(elementchoice){
                 case 1:{
+                    Continue();
                     addStudent(Student);
                     break;
                 }
                 case 2:{
+                    Continue();
                     addTeacher(Teacher);
                     break;
                 }
                 case 3:{
+                    Continue();
                     addFaculty_Staff(Staff);
                     break;
                 }

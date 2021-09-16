@@ -29,6 +29,9 @@ void remove_facultyStaff(std::vector<faculty> &Staff);
 
 void displayMenu();
 void Process(size_t choice, std::vector<student> &Student, std::vector<teacher> &Teacher, std::vector<faculty> &Staff);
+void DisplayElements1();
+void DisplayElements2();
+void DisplaySection();
 
 
 
