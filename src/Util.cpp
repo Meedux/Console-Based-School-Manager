@@ -14,15 +14,18 @@ void addStudent(std::vector<student> &Student){
 
     std::cout << "Enter Student's Name: ";
     std::getline(std::cin, name);
-    std::system("clear");
+
+    std::cout << std::endl;
 
     std::cout << "Enter Student's Age: ";
     std::cin >> age;
-    std::system("clear");
+
+    std::cout << std::endl;
 
     std::cout << "Enter Student's Section: ";
     std::cin >> section;
-    std::system("clear");
+
+    std::cout << std::endl;
 
     Student.push_back(student{name, section, age});
 
@@ -38,15 +41,18 @@ void addTeacher(std::vector<teacher> &Teacher){
 
     std::cout << "Enter Teacher's Name: ";
     std::getline(std::cin, name);
-    std::system("clear");
+
+    std::cout << std::endl;
 
     std::cout << "Enter Teacher's Age: ";
     std::cin >> age;
-    std::system("clear");
+
+    std::cout << std::endl;
 
     std::cout << "Enter Teacher's Section: ";
     std::cin >> section;
-    std::system("clear");
+
+    std::cout << std::endl;
 
     Teacher.push_back(teacher{name, section, age});
 
@@ -62,11 +68,13 @@ void addFaculty_Staff(std::vector<faculty> &Staff){
 
     std::cout << "Enter Staff's Name: ";
     std::getline(std::cin, name);
-    std::system("clear");
+
+    std::cout << std::endl;
 
     std::cout << "Enter Staff's Age: ";
     std::cin >> age;
-    std::system("clear");
+
+    std::cout << std::endl;
 
     std::cout << "Staff Successfully Created" << std::endl;
 
@@ -169,12 +177,27 @@ void displayMenu()
     std::cout << std::setw(50) << "Console-Based School Manager Application" << std::endl;
     std::cout << std::setw(90) << std::setfill('-') << "-" << std::endl;
     std::cout << std::setfill(' ');
-    std::cout << "(1)" << std::setw(90) << "Modify Person" << std::endl;
+    std::cout << "(1)" << std::setw(90) << "Modify Element" << std::endl;
     std::cout << "(2)" << std::setw(90) << "Modify Section" << std::endl;
-    std::cout << "(3)" << std::setw(90) << "Display Staff" << std::endl;
+    std::cout << "(3)" << std::setw(90) << "Display Element" << std::endl;
     std::cout << "(4)" << std::setw(90) << "Print a Section" << std::endl;
     std::cout << "(5)" << std::setw(90) << "Load a Section" << std::endl;
+    std::cout << "(6)" << std::setw(90) << "Help" << std::endl;
     std::cout << "(0)" << std::setw(90) << "Exit" << std::endl;
+}
+
+void DisplayElements1()
+{
+    std::cout << "(1)" << std::setw(50) << "Add a Student" << std::endl;
+    std::cout << "(2)" << std::setw(50) << "Add a Teacher" << std::endl;
+    std::cout << "(3)" << std::setw(50) << "Add a Faculty Staff" << std::endl;
+}
+
+void DisplayElements2()
+{
+    std::cout << "(1)" << std::setw(50) << "Display all Student" << std::endl;
+    std::cout << "(2)" << std::setw(50) << "Display all Teacher" << std::endl;
+    std::cout << "(3)" << std::setw(50) << "Display all Faculty Staff" << std::endl;
 }
 
 void Process(size_t choice, std::vector<student> &Student, std::vector<teacher> &Teacher, std::vector<faculty> &Staff){
@@ -182,7 +205,31 @@ void Process(size_t choice, std::vector<student> &Student, std::vector<teacher> 
     {
         case 1:{
             std::system("clear");
-            std::cout << "Its a One" << std::endl;
+            //WOULD REFACTOR THIS SHIT CAUSE I FORGOT TO MAKE IT ADD AND REMOVE
+            size_t elementchoice;
+            DisplayElements1();
+            std::cout << std::setfill('-') << std::setw(50) << "" << std::endl;
+            std::cout << std::setfill(' ');
+            std::cout << "Choice: ";
+            std::cin >> elementchoice;
+            switch(elementchoice){
+                case 1:{
+                    addStudent(Student);
+                    break;
+                }
+                case 2:{
+                    addTeacher(Teacher);
+                    break;
+                }
+                case 3:{
+                    addFaculty_Staff(Staff);
+                    break;
+                }
+                default:{
+                    std::cerr << "INVALID INPUT PLEASE TRY AGAIN!...." << std::endl;
+                    std::system("clear");
+                }
+            }
             Continue();
             break;
         }
@@ -194,7 +241,30 @@ void Process(size_t choice, std::vector<student> &Student, std::vector<teacher> 
         }
         case 3:{
             std::system("clear");
-            std::cout << "Its a Three" << std::endl;
+            size_t elementchoice;
+            DisplayElements2();
+            std::cout << std::setfill('-') << std::setw(50) << "" << std::endl;
+            std::cout << std::setfill(' ');
+            std::cout << "Choice: ";
+            std::cin >> elementchoice;
+            switch(elementchoice){
+                case 1:{
+                    display_students(Student);
+                    break;
+                }
+                case 2:{
+                    display_teachers(Teacher);
+                    break;
+                }
+                case 3:{
+                    display_faculty(Staff);
+                    break;
+                }
+                default:{
+                    std::cerr << "INVALID INPUT PLEASE TRY AGAIN!...." << std::endl;
+                    std::system("clear");
+                }
+            }
             Continue();
             break;
         }
@@ -207,6 +277,12 @@ void Process(size_t choice, std::vector<student> &Student, std::vector<teacher> 
         case 5:{
             std::system("clear");
             std::cout << "Its a Five" << std::endl;
+            Continue();
+            break;
+        }
+        case 6:{
+            std::system("clear");
+
             Continue();
             break;
         }
