@@ -2,7 +2,8 @@
 
 void Continue(){
     std::cout << std::endl;
-    std::system("echo 'Loading......' && sleep 6");
+    std::cout << "Pres Enter to Continue........";
+    std::cin.get();
     std::system("clear");
 }
 
@@ -12,7 +13,6 @@ void addStudent(std::vector<student> &Student){
     std::string section;
     int age;
 
-    //WHY THE FUCK IS GETLINE NOT FUCKING WORKING REEEEEEEEEEEEEEEEE
     std::cin.get();
     std::cout << "Enter Student's Name: ";
     std::getline(std::cin, name);
@@ -30,7 +30,7 @@ void addStudent(std::vector<student> &Student){
     std::cout << std::endl;
 
     Student.push_back(student{name, section, age});
-
+    std::system("clear");
     std::cout << "Student Successfully Created!" << std::endl;
     Continue();
 }
@@ -57,7 +57,6 @@ void addTeacher(std::vector<teacher> &Teacher){
     std::cout << std::endl;
 
     Teacher.push_back(teacher{name, section, age});
-
     std::cout << "Teacher Successfully Created" << std::endl;
     Continue();
 }
@@ -80,12 +79,13 @@ void addFaculty_Staff(std::vector<faculty> &Staff){
     std::cout << std::endl;
 
     std::cout << "Staff Successfully Created" << std::endl;
-
     Staff.push_back(faculty{name, age});
     Continue();
 }
 
 void display_students(std::vector<student> &Student){
+    std::cin.get();
+    std::system("clear");
     std::cout << std::setw(8) << "Name" << std::setw(90) << "Section" << std::endl
               << std::setw(90) << std::setfill('-') << "-" << std::endl;
     std::cout << std::setfill(' ');
@@ -101,6 +101,8 @@ void display_students(std::vector<student> &Student){
 }
 
 void display_teachers(std::vector<teacher> &Teacher){
+    std::cin.get();
+    std::system("clear");
     std::cout << std::setw(8) << "Name" << std::setw(90) << "Section" << std::endl
               << std::setw(90) << std::setfill('-') << "-" << std::endl;
     std::cout << std::setfill(' ');
@@ -116,6 +118,8 @@ void display_teachers(std::vector<teacher> &Teacher){
 }
 
 void display_faculty(std::vector<faculty> &Staff){
+    std::cin.get();
+    std::system("clear");
     std::cout << std::setw(8) << "Name" << std::setw(90) << "Age" << std::endl
               << std::setw(90) << std::setfill('-') << "-" << std::endl;
     std::cout << std::setfill(' ');
@@ -134,7 +138,7 @@ void remove_student(std::vector<student> &Student){
     display_students(Student);
 
     size_t choice{};
-
+    std::cin.get();
     std::cout << std::setw(90) << std::setfill('-') << "-" << std::endl;
     std::cout << "Student to remove: ";
     std::cin >> choice;
@@ -142,6 +146,7 @@ void remove_student(std::vector<student> &Student){
     choice -= 1;
     Student.erase(Student.begin() + choice);
 
+    std::cin.get();
     system("clear");
     Continue();
 }
@@ -150,7 +155,7 @@ void remove_teacher(std::vector<teacher> &Teacher){
     display_teachers(Teacher);
 
     size_t choice{};
-
+    std::cin.get();
     std::cout << std::setw(90) << std::setfill('-') << "-" << std::endl;
     std::cout << "Teacher to remove: ";
     std::cin >> choice;
@@ -158,6 +163,7 @@ void remove_teacher(std::vector<teacher> &Teacher){
     choice -= 1;
     Teacher.erase(Teacher.begin() + choice);
 
+    std::cin.get();
     system("clear");
     Continue();
 }
@@ -174,6 +180,7 @@ void remove_facultyStaff(std::vector<faculty> &Staff){
     choice -= 1;
     Staff.erase(Staff.begin() + choice);
 
+    std::cin.get();
     system("clear");
     Continue();
 }
@@ -220,17 +227,14 @@ void Process(size_t choice, std::vector<student> &Student, std::vector<teacher> 
             std::cin >> elementchoice;
             switch(elementchoice){
                 case 1:{
-                    Continue();
                     addStudent(Student);
                     break;
                 }
                 case 2:{
-                    Continue();
                     addTeacher(Teacher);
                     break;
                 }
                 case 3:{
-                    Continue();
                     addFaculty_Staff(Staff);
                     break;
                 }
@@ -271,10 +275,10 @@ void Process(size_t choice, std::vector<student> &Student, std::vector<teacher> 
                 }
                 default:{
                     std::cerr << "INVALID INPUT PLEASE TRY AGAIN!...." << std::endl;
+                    Continue();
                     std::system("clear");
                 }
             }
-            Continue();
             break;
         }
         case 4:{

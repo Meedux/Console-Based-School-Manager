@@ -12,6 +12,7 @@ int main()
         displayMenu();
         std::cout << "Choice: ";
         std::cin >> choice;
+        std::cin.get();
         Process(choice, Students, Teachers, Faculty_Staff);
     }
 
