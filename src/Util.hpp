@@ -25,12 +25,17 @@ void remove_student(std::vector<student> &Student);
 void remove_teacher(std::vector<teacher> &Teacher);
 void remove_facultyStaff(std::vector<faculty> &Staff);
 
+void print_students(std::vector<student> &Student);
+void print_teachers(std::vector<teacher> &Teacher);
+void print_faculty_members(std::vector<faculty> &Staff);
+
 //void grade_student();
 
 void displayMenu();
 void Process(size_t choice, std::vector<student> &Student, std::vector<teacher> &Teacher, std::vector<faculty> &Staff);
 void DisplayElements1();
-void DisplayElements2();
+void DisplayElements3();
+void DisplayElements4();
 void DisplaySection();
 
 

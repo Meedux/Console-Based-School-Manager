@@ -1,5 +1,11 @@
 #include "Util.hpp"
 
+struct section{
+    std::string name;
+    teacher adviser;
+    std::vector<student> students;
+};
+
 void Continue(){
     std::cout << std::endl;
     std::cout << "Pres Enter to Continue........";
@@ -135,7 +141,18 @@ void display_faculty(std::vector<faculty> &Staff){
 }
 
 void remove_student(std::vector<student> &Student){
-    display_students(Student);
+    std::system("clear");
+    std::cout << std::setw(8) << "Name" << std::setw(90) << "Section" << std::endl
+              << std::setw(90) << std::setfill('-') << "-" << std::endl;
+    std::cout << std::setfill(' ');
+
+    size_t j{1};
+
+    for(size_t i{}; i < Student.size(); i++)
+    {
+        std::cout << '[' << j << ']' << (Student.at(i)).getName() << std::setw(90) << (Student.at(i)).getSection() << std::endl;
+        j++;
+    }
 
     size_t choice{};
     std::cin.get();
@@ -152,7 +169,18 @@ void remove_student(std::vector<student> &Student){
 }
 
 void remove_teacher(std::vector<teacher> &Teacher){
-    display_teachers(Teacher);
+    std::system("clear");
+    std::cout << std::setw(8) << "Name" << std::setw(90) << "Section" << std::endl
+              << std::setw(90) << std::setfill('-') << "-" << std::endl;
+    std::cout << std::setfill(' ');
+
+    size_t j{1};
+
+    for(size_t i{}; i < Teacher.size(); i++)
+    {
+        std::cout << '[' << j << ']' << (Teacher.at(i)).getName() << std::setw(90) << (Teacher.at(i)).getSection() << std::endl;
+        j++;
+    }
 
     size_t choice{};
     std::cin.get();
@@ -169,7 +197,18 @@ void remove_teacher(std::vector<teacher> &Teacher){
 }
 
 void remove_facultyStaff(std::vector<faculty> &Staff){
-    display_faculty(Staff);
+    std::system("clear");
+    std::cout << std::setw(8) << "Name" << std::setw(90) << "Age" << std::endl
+              << std::setw(90) << std::setfill('-') << "-" << std::endl;
+    std::cout << std::setfill(' ');
+
+    size_t j{1};
+
+    for(size_t i{}; i < Staff.size(); i++)
+    {
+        std::cout << '[' << j << ']' << (Staff.at(i)).getName() << std::setw(90) << (Staff.at(i)).getSection() << std::endl;
+        j++;
+    }
 
     size_t choice{};
 
@@ -185,10 +224,20 @@ void remove_facultyStaff(std::vector<faculty> &Staff){
     Continue();
 }
 
+void print_students(std::vector<student> &Student){
+
+}
+void print_teachers(std::vector<teacher> &Teacher){
+
+}
+void print_faculty_members(std::vector<faculty> &Staff){
+
+}
+
 void displayMenu()
 {
     std::cout << std::setw(50) << "Console-Based School Manager Application" << std::endl;
-    std::cout << std::setw(90) << std::setfill('-') << "-" << std::endl;
+    std::cout << std::setw(91) << std::setfill('-') << "-" << std::endl;
     std::cout << std::setfill(' ');
     std::cout << "(1)" << std::setw(90) << "Modify Element" << std::endl;
     std::cout << "(2)" << std::setw(90) << "Modify Section" << std::endl;
@@ -204,13 +253,23 @@ void DisplayElements1()
     std::cout << "(1)" << std::setw(50) << "Add a Student" << std::endl;
     std::cout << "(2)" << std::setw(50) << "Add a Teacher" << std::endl;
     std::cout << "(3)" << std::setw(50) << "Add a Faculty Staff" << std::endl;
+    std::cout << "(4)" << std::setw(50) << "Remove a Student" << std::endl;
+    std::cout << "(5)" << std::setw(50) << "Remove a Teacher" << std::endl;
+    std::cout << "(6)" << std::setw(50) << "Remove a Faculty Staff" << std::endl;
 }
 
-void DisplayElements2()
+void DisplayElements3()
 {
     std::cout << "(1)" << std::setw(50) << "Display all Student" << std::endl;
     std::cout << "(2)" << std::setw(50) << "Display all Teacher" << std::endl;
     std::cout << "(3)" << std::setw(50) << "Display all Faculty Staff" << std::endl;
+}
+
+void DisplayElements4()
+{
+    std::cout << "(1)" << std::setw(50) << "Print all Students" << std::endl;
+    std::cout << "(2)" << std::setw(50) << "Print all Teachers" << std::endl;
+    std::cout << "(3)" << std::setw(50) << "Print all Faculty Staff" << std::endl;
 }
 
 void Process(size_t choice, std::vector<student> &Student, std::vector<teacher> &Teacher, std::vector<faculty> &Staff){
@@ -221,7 +280,7 @@ void Process(size_t choice, std::vector<student> &Student, std::vector<teacher> 
             //WOULD REFACTOR THIS SHIT CAUSE I FORGOT TO MAKE IT ADD AND REMOVE
             size_t elementchoice;
             DisplayElements1();
-            std::cout << std::setfill('-') << std::setw(50) << "" << std::endl;
+            std::cout << std::setfill('-') << std::setw(51) << "-" << std::endl;
             std::cout << std::setfill(' ');
             std::cout << "Choice: ";
             std::cin >> elementchoice;
@@ -236,6 +295,18 @@ void Process(size_t choice, std::vector<student> &Student, std::vector<teacher> 
                 }
                 case 3:{
                     addFaculty_Staff(Staff);
+                    break;
+                }
+                case 4:{
+                    remove_student(Student);
+                    break;
+                }
+                case 5:{
+                    remove_teacher(Teacher);
+                    break;
+                }
+                case 6:{
+                    remove_facultyStaff(Staff);
                     break;
                 }
                 default:{
@@ -255,8 +326,8 @@ void Process(size_t choice, std::vector<student> &Student, std::vector<teacher> 
         case 3:{
             std::system("clear");
             size_t elementchoice;
-            DisplayElements2();
-            std::cout << std::setfill('-') << std::setw(50) << "" << std::endl;
+            DisplayElements3();
+            std::cout << std::setfill('-') << std::setw(51) << "-" << std::endl;
             std::cout << std::setfill(' ');
             std::cout << "Choice: ";
             std::cin >> elementchoice;
