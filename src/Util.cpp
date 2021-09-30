@@ -226,7 +226,8 @@ void remove_facultyStaff(std::vector<faculty> &Staff){
 
 //Todo: Print the Elements with an ofstream object
 void print_students(std::vector<student> &Student){
-
+    std::ofstream output;
+    
 }
 void print_teachers(std::vector<teacher> &Teacher){
 
