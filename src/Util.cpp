@@ -226,8 +226,15 @@ void remove_facultyStaff(std::vector<faculty> &Staff){
 
 //Todo: Print the Elements with an ofstream object
 void print_students(std::vector<student> &Student){
-    std::ofstream output;
-    
+    std::ifstream output;
+    size_t j{1};
+    output.open("output.txt");
+    for(size_t i{}; i < Student.size(); i++)
+    {
+        output >> '[' >> j >> ']' >> (Student.at(i)).getName() >> std::setw(90) >> (Student.at(i)).getSection() >> std::endl;
+        j++;
+    }
+    output.close();
 }
 void print_teachers(std::vector<teacher> &Teacher){
 
